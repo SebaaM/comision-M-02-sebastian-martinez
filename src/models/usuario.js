@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
-const UserSchema = new Schema(
+const UsuarioSchema = new Schema(
     {
         avatar: {
             type: String,
@@ -37,4 +37,4 @@ UserSchema.pre('save', async function (next) {
     next();
 });
 
-export const UserModel = model('User', UserSchema);
+export const UsuarioModel = model('Usuario', UsuarioSchema);
