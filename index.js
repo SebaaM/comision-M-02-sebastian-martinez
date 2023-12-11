@@ -8,9 +8,9 @@ import { env } from "./settings/envs.js"
 // import { config } from './src/settings/config.js';
 import { startConnection } from './settings/database.js';
 
-// import { authRouter } from './src/routes/auth.routes.js';
-// import { musicRouter } from './src/routes/music.routes.js';
-// import { playlistRouter } from './src/routes/playlist.routes.js';
+import { usuarioRouter } from './src/routers/usuario-routes.js';
+import { comentarioRouter } from './src/routers/comentario-routes.js';
+import { postRouter } from './src/routers/post-routes.js';
 // import { validateToken } from './src/middlewares/validate-token.js';
 // import { authHeader } from './src/models/validations/auth-validation.js';
 
@@ -26,10 +26,10 @@ app.use(helmet());
 app.use(morgan('dev'));
 app.use(express.static("public"))
 
-
-// app.use('/api/auth', authRouter);
-// app.use('/api/playlist', authHeader, validateToken, playlistRouter);
-// app.use('/api/musics', authHeader, validateToken, musicRouter);
+// , authHeader, validateToken, 
+app.use('/api/usuario', usuarioRouter);
+app.use('/api/post', postRouter);
+app.use('/api/comentario', comentarioRouter);
 
 app.listen(env.PORT, async () => {
 
